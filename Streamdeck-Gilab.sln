@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streamdeck-Gitlab", "Streamdeck-Gitlab.csproj", "{CDB6AB40-85E3-424A-B127-D63927FBF474}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streamdeck-Gitlab-Tests", "Streamdeck-Gitlab-Tests\Streamdeck-Gitlab-Tests.csproj", "{AC96DCCC-DE0B-4DB8-996E-F77EFC5D9C2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDB6AB40-85E3-424A-B127-D63927FBF474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB6AB40-85E3-424A-B127-D63927FBF474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB6AB40-85E3-424A-B127-D63927FBF474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB6AB40-85E3-424A-B127-D63927FBF474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC96DCCC-DE0B-4DB8-996E-F77EFC5D9C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC96DCCC-DE0B-4DB8-996E-F77EFC5D9C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC96DCCC-DE0B-4DB8-996E-F77EFC5D9C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC96DCCC-DE0B-4DB8-996E-F77EFC5D9C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

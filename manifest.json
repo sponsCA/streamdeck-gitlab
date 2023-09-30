@@ -1,0 +1,44 @@
+{
+  "Actions": [
+    {
+      "Icon": "Images/clockifyIcon",
+      "Name": "Gitlab",
+      "States": [
+        {
+          "Image": "Images/toggleActionInactiveIcon",
+          "TitleAlignment": "middle",
+          "TitleColor": "#1E1E1E",
+          "FontSize": "10"
+        },
+        {
+          "Image": "Images/toggleActionActiveIcon",
+          "TitleAlignment": "middle",
+          "TitleColor": "#1E1E1E",
+          "FontSize": "10"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "TODO",
+      "UUID": "dev.spons.gitlab.toggle",
+      "PropertyInspectorPath": "PropertyInspector/PluginActionPI.html"
+    }
+  ],
+  "Author": "Sébastien Pons",
+  "Name": "Gitlab",
+  "Description": "Stream Deck integration for Gitlab.",
+  "Icon": "Images/clockifyIcon",
+  "Version": "1.0",
+  "CodePath": "dev.spons.gitlab.exe",
+  "Category": "Development",
+  "CategoryIcon": "Images/categoryTimerIcon",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "4.9"
+  }
+}
