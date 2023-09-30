@@ -1,36 +1,34 @@
 {
   "Actions": [
     {
-      "Icon": "Images/clockifyIcon",
-      "Name": "Gitlab",
+      "Icon": "Images/iconTodos",
+      "Name": "Pending Todos count",
       "States": [
         {
-          "Image": "Images/toggleActionInactiveIcon",
-          "TitleAlignment": "middle",
-          "TitleColor": "#1E1E1E",
-          "FontSize": "10"
+          "Image": "Images/stateTodoNeutral",
+          "TitleAlignment": "bottom",
+          "FontSize": "15"
         },
         {
-          "Image": "Images/toggleActionActiveIcon",
-          "TitleAlignment": "middle",
-          "TitleColor": "#1E1E1E",
-          "FontSize": "10"
+          "Image": "Images/stateTodoAlert",
+          "TitleAlignment": "bottom",
+          "FontSize": "15"
         }
       ],
-      "SupportedInMultiActions": true,
-      "Tooltip": "TODO",
-      "UUID": "dev.spons.gitlab.toggle",
-      "PropertyInspectorPath": "PropertyInspector/PluginActionPI.html"
+      "SupportedInMultiActions": false,
+      "Tooltip": "Display a count of your pending Gitlab todos",
+      "UUID": "dev.spons.gitlab.todoscounter",
+      "PropertyInspectorPath": "TodosCounter/TodosCounterPropertyInspector/PluginActionPI.html"
     }
   ],
   "Author": "Sébastien Pons",
   "Name": "Gitlab",
   "Description": "Stream Deck integration for Gitlab.",
-  "Icon": "Images/clockifyIcon",
+  "Icon": "Images/gitlab",
   "Version": "1.0",
   "CodePath": "dev.spons.gitlab.exe",
-  "Category": "Development",
-  "CategoryIcon": "Images/categoryTimerIcon",
+  "Category": "Gitlab",
+  "CategoryIcon": "Images/gitlab",
   "OS": [
     {
       "Platform": "windows",
