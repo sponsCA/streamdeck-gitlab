@@ -1,12 +1,12 @@
 ﻿using System.Diagnostics;
 using BarRaider.SdTools;
 
-[PluginActionId("dev.spons.gitlab.todoscounter")]
-public class TodosCounter : KeypadBase
+[PluginActionId("dev.spons.gitlab.rmrrcounter")]
+public class RmrrCounter : KeypadBase
 {
     private const uint InactiveState = 0;
     private const uint ActiveState = 1;
-    private readonly TodosCounterPluginSettings _settings;
+    private readonly RmrrCounterPluginSettings _settings;
     private readonly GitlabClient _gitlabClient;
 
     private Logger _logger;
@@ -14,20 +14,20 @@ public class TodosCounter : KeypadBase
     // SDK does not allow us to set the tick interval, this is a workaround to only poke the API every 10 ticks (seconds)
     private int _tickCount = GlobalConstants.RefreshRate;
 
-    public TodosCounter(ISDConnection connection, InitialPayload payload)
+    public RmrrCounter(ISDConnection connection, InitialPayload payload)
         : base(connection, payload)
     {
         Connection.SetTitleAsync("Loading...").Wait();
 
         _logger = new Logger(BarRaider.SdTools.Logger.Instance);
 
-        _settings = new TodosCounterPluginSettings();
+        _settings = new RmrrCounterPluginSettings();
         _gitlabClient = new GitlabClient();
 
         Tools.AutoPopulateSettings(_settings, payload.Settings);
 
         this.UpdateClient().Wait();
-        this.UpdateTodosCount().Wait();
+        this.UpdateRmrrCount().Wait();
     }
 
     public override void Dispose()
@@ -41,8 +41,8 @@ public class TodosCounter : KeypadBase
 
     public override async void KeyReleased(KeyPayload payload)
     {
-        Process.Start(new ProcessStartInfo($"{_settings.ServerUrl}/dashboard/todos") { UseShellExecute = true });
-        await this.UpdateTodosCount();
+        Process.Start(new ProcessStartInfo($"{_settings.ServerUrl}/dashboard/merge_requests?scope=all&state=opened&reviewer_username={this._settings.Username}&not[approved_by_usernames][]={this._settings.Username}") { UseShellExecute = true });
+        await this.UpdateRmrrCount();
     }
 
     public override async void OnTick()
@@ -53,7 +53,7 @@ public class TodosCounter : KeypadBase
             return;
         }
 
-        await this.UpdateTodosCount();
+        await this.UpdateRmrrCount();
 
         _tickCount = 0;
         _tickCount++;
@@ -78,17 +78,17 @@ public class TodosCounter : KeypadBase
         }
     }
 
-    private async Task UpdateTodosCount()
+    private async Task UpdateRmrrCount()
     {
-        var todosCount = await _gitlabClient.GetTodosCount();
+        var rmrrCount = await _gitlabClient.GetRmrrCount();
 
-        if (todosCount == null)
+        if (rmrrCount == null)
         {
             await Connection.ShowAlert();
             return;
         }
 
-        if (todosCount > 0)
+        if (rmrrCount > 0)
         {
             await Connection.SetStateAsync(ActiveState);
         }
@@ -97,6 +97,6 @@ public class TodosCounter : KeypadBase
             await Connection.SetStateAsync(InactiveState);
         }
 
-        await Connection.SetTitleAsync(todosCount.ToString());
+        await Connection.SetTitleAsync(rmrrCount.ToString());
     }
 }

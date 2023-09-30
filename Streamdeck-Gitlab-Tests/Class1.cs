@@ -10,18 +10,8 @@ namespace Streamdeck_Gitlab_Tests
         {
             var gitLabToken = "SECRET";
 
-            var client = new HttpClient(){BaseAddress = new Uri("SECRET" + "/api/v4/")};
+            var client = new HttpClient() { BaseAddress = new Uri("SECRET" + "/api/v4/") };
             client.DefaultRequestHeaders.Add("PRIVATE-TOKEN", gitLabToken);
-
-            var result = await client.GetAsync("todos");
-
-            var content = await result.Content.ReadAsStringAsync();
-
-            var jarray = JArray.Parse(content);
-
-            var status= result.IsSuccessStatusCode;
-
-            return;
         }
     }
 }

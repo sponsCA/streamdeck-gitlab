@@ -19,6 +19,26 @@
       "Tooltip": "Display a count of your pending Gitlab todos",
       "UUID": "dev.spons.gitlab.todoscounter",
       "PropertyInspectorPath": "TodosCounter/TodosCounterPropertyInspector/PluginActionPI.html"
+    },
+	    {
+      "Icon": "Images/iconMRsReview",
+      "Name": "Merge Request Review requested count",
+      "States": [
+        {
+          "Image": "Images/stateMRReviewNeutral",
+          "TitleAlignment": "bottom",
+          "FontSize": "15"
+        },
+        {
+          "Image": "Images/stateMRReviewAlert",
+          "TitleAlignment": "bottom",
+          "FontSize": "15"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Display a count of your unapproved by you requested merge request reviews",
+      "UUID": "dev.spons.gitlab.rmrrcounter",
+      "PropertyInspectorPath": "RmrrCounter/RmrrCounterPropertyInspector/PluginActionPI.html"
     }
   ],
   "Author": "Sébastien Pons",
