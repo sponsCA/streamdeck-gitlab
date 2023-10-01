@@ -12,6 +12,7 @@
         <Product>dev.spons.gitlab</Product>
         <AssemblyVersion>1.0</AssemblyVersion>
         <OutputPath>bin\Release\</OutputPath>
+        <RootNamespace>Streamdeck-Gitlab</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -91,7 +92,7 @@
         <None Update="Images\clockifyIcon@2x.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-        <None Remove="Streamdeck-Gitlab-Tests\**" />
+        <None Remove="Streamdeck_Gitlab_Tests\**" />
         <None Update="Images\iconMRsAssigned.png">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
@@ -234,11 +235,11 @@
         </None>
     </ItemGroup>
     <ItemGroup>
-      <Compile Remove="Streamdeck-Gitlab-Tests\**" />
+      <Compile Remove="Streamdeck_Gitlab_Tests\**" />
       <Compile Remove="temp\**" />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Remove="Streamdeck-Gitlab-Tests\**" />
+      <EmbeddedResource Remove="Streamdeck_Gitlab_Tests\**" />
       <EmbeddedResource Remove="temp\**" />
     </ItemGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

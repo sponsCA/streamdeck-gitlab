@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streamdeck-Gitlab", "Streamdeck-Gitlab.csproj", "{CDB6AB40-85E3-424A-B127-D63927FBF474}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streamdeck_Gitlab", "Streamdeck_Gitlab.csproj", "{CDB6AB40-85E3-424A-B127-D63927FBF474}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streamdeck-Gitlab-Tests", "Streamdeck-Gitlab-Tests\Streamdeck-Gitlab-Tests.csproj", "{AC96DCCC-DE0B-4DB8-996E-F77EFC5D9C2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streamdeck_Gitlab_Tests", "Streamdeck_Gitlab_Tests\Streamdeck_Gitlab_Tests.csproj", "{AC96DCCC-DE0B-4DB8-996E-F77EFC5D9C2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

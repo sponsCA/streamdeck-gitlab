@@ -1,12 +1,11 @@
-﻿using Newtonsoft.Json.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace Streamdeck_Gitlab_Tests
 {
     public class Test
     {
         [Test]
-        public async Task TestTest()
+        public async Task TestAPI()
         {
             var gitLabToken = "SECRET";
 
