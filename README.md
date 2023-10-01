@@ -3,6 +3,16 @@
 
 This plugin integrates Gitlab on your [Elgato Stream Deck](https://www.elgato.com/en/stream-deck).
 
+## Features
+- **Refresh rate** : 30 seconds
+- **Actions** 
+  - **Pending Todos count** : Displays the current count of your pending todos.
+  - **Merge Request Review count** : Displays the current count of your active Merge Requests. This means an active MR you are the author.
+  - **Unapproved Review Requests count** : Displays the current count of your active unapproved merge request reviews requested. This means an active MR requested from others (you're a reviewer but not the author).
+  - **Actions states** :
+    - **Red** : Count > 0
+    - **Black** : Count = 0
+
 ## Download
 You can download a copy from the [GitHub release pages](https://github.com/sponsCA/streamdeck-gitlab/releases/latest).
 
