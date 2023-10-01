@@ -37,8 +37,8 @@
       ],
       "SupportedInMultiActions": false,
       "Tooltip": "Display a count of your unapproved by you requested merge request reviews",
-      "UUID": "dev.spons.gitlab.rmrrcounter",
-      "PropertyInspectorPath": "RmrrCounter/RmrrCounterPropertyInspector/PluginActionPI.html"
+      "UUID": "dev.spons.gitlab.othermrscounter",
+      "PropertyInspectorPath": "OtherMRsCounter/OtherMRsCounterPropertyInspector/PluginActionPI.html"
     }
   ],
   "Author": "Sébastien Pons",

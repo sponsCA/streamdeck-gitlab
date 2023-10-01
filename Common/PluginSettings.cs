@@ -6,4 +6,7 @@ public class PluginSettings
 
     [JsonProperty(PropertyName = "serverUrl")]
     public string ServerUrl { get; set; } = string.Empty;
+
+    [JsonProperty(PropertyName = "userName")]
+    public string Username { get; set; } = string.Empty;
 }

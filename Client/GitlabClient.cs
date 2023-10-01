@@ -42,7 +42,7 @@ public class GitlabClient
         }
     }
 
-    public async Task<int?> GetRmrrCount()
+    public async Task<int?> GetOtherMRsCount()
     {
         if (this._client == null)
         {
@@ -109,7 +109,7 @@ public class GitlabClient
 
     public async Task UpdateSettings(PluginSettings settings)
     {
-        if (_client == null || settings.Token != _token || settings.ServerUrl != _serverUrl)
+        if (_client == null || settings.Token != _token || settings.ServerUrl != _serverUrl || settings.Username != _userName)
         {
             if (!Uri.IsWellFormedUriString(settings.ServerUrl, UriKind.Absolute))
             {
@@ -123,10 +123,7 @@ public class GitlabClient
 
             _serverUrl = settings.ServerUrl;
             _token = settings.Token;
-            if (settings is RmrrCounterPluginSettings castedSettings)
-            {
-                _userName = castedSettings.Username;
-            }
+            _userName = settings.Username;
 
             var client = new HttpClient() { BaseAddress = new Uri(settings.ServerUrl + "/api/v4/") };
             client.DefaultRequestHeaders.Add("PRIVATE-TOKEN", this._token);
