@@ -220,6 +220,18 @@
         </None>
         <None Remove="temp\**" />
         <None Remove="DistributionTool.exe" />
+        <None Update="MyMRsCounter\MyMRsCounterPropertyInspector\PluginActionPI.html">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="MyMRsCounter\MyMRsCounterPropertyInspector\PluginActionPI.js">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="MyMRsCounter\MyMRsCounterPropertyInspector\sdpi.css">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="MyMRsCounter\MyMRsCounterPropertyInspector\sdtools.common.js">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
     <ItemGroup>
       <Compile Remove="Streamdeck-Gitlab-Tests\**" />

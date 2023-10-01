@@ -1,5 +1,5 @@
 ﻿public static class GlobalConstants
 {
     // in seconds
-    public const int RefreshRate = 5;
+    public const int RefreshRate = 30;
 }

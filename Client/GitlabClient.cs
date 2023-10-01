@@ -107,6 +107,34 @@ public class GitlabClient
         }
     }
 
+    public async Task<int?> GetMyMRsCount()
+    {
+        if (this._client == null)
+        {
+            return null;
+        }
+
+        try
+        {
+            var mergeRequestsResult = await this._client!.GetAsync($"merge_requests?state=opened&scope=all&author_username={this._userName}");
+            if (!mergeRequestsResult.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var mergeRequestsContent = await mergeRequestsResult.Content.ReadAsStringAsync();
+
+            var mergeRequests = JArray.Parse(mergeRequestsContent);
+
+            return mergeRequests.Count;
+        }
+
+        catch
+        {
+            return null;
+        }
+    }
+
     public async Task UpdateSettings(PluginSettings settings)
     {
         if (_client == null || settings.Token != _token || settings.ServerUrl != _serverUrl || settings.Username != _userName)
