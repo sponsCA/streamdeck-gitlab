@@ -14,17 +14,33 @@
 <div class="sdpi-wrapper">
     <div class="sdpi-item">
         <div class="sdpi-item-label">Access token</div>
-        <input class="sdpi-item-value sdProperty" id="token" value="" pattern="[A-Za-z0-9]+" placeholder="Enter your Access Token"
-               oninput="setSettings()" required>
-    </div>
-    <div class="sdpi-item">
-        <div class="sdpi-item-label">Server Url</div>
-        <input class="sdpi-item-value sdProperty" id="serverUrl" value="" placeholder="Enter the ULR of the Server"
+        <input class="sdpi-item-value sdProperty" id="token" value="" type="password" pattern="[A-Za-z0-9]+" placeholder="Enter your Access Token"
                oninput="setSettings()" required>
     </div>
     <div class="sdpi-item">
         <div class="sdpi-item-label">Username</div>
         <input class="sdpi-item-value sdProperty" id="userName" value="" placeholder="Enter your username"
+               oninput="setSettings()" required>
+    </div>
+    <div class="sdpi-item">
+        <div class="sdpi-item-label">Only approved MRs</div>
+        <select class="sdpi-item-value sdProperty" id="onlyApprovedMrs"
+                oninput="setSettings()" required>
+            <option value="true">Yes</option>
+            <option value="false" selected>No</option>
+        </select>
+    </div>
+    <div class="sdpi-item">
+        <div class="sdpi-item-label">Only unapproved MRs</div>
+        <select class="sdpi-item-value sdProperty" id="onlyUnapprovedMrs"
+                oninput="setSettings()" required>
+            <option value="true">Yes</option>
+            <option value="false" selected>No</option>
+        </select>
+    </div>
+    <div class="sdpi-item">
+        <div class="sdpi-item-label">Server Url</div>
+        <input class="sdpi-item-value sdProperty" id="serverUrl" value="" placeholder="Enter the ULR of the Server"
                oninput="setSettings()" required>
     </div>
 </div>

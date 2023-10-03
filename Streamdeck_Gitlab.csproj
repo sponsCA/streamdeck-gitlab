@@ -12,7 +12,6 @@
         <Product>dev.spons.gitlab</Product>
         <AssemblyVersion>1.0</AssemblyVersion>
         <OutputPath>bin\Release\</OutputPath>
-        <RootNamespace>Streamdeck-Gitlab</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

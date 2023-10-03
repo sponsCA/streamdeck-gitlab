@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json.Linq;
+using Streamdeck_Gitlab.Common;
+
+namespace Streamdeck_Gitlab.Client;
 
 public class GitlabClient
 {
     private HttpClient? _client;
 
-    private string _token = string.Empty;
-    private string _serverUrl = string.Empty;
-    private string _userName = string.Empty;
+    private GitlabClientSettings Settings { get; set; } = new GitlabClientSettings();
 
     public async Task<bool> IsValid()
     {
@@ -51,7 +52,9 @@ public class GitlabClient
 
         try
         {
-            var mergeRequestsResult = await this._client!.GetAsync($"merge_requests?state=opened&scope=all&reviewer_username={this._userName}");
+            var mergeRequestsResult =
+                await this._client!.GetAsync(
+                    $"merge_requests?state=opened&scope=all&reviewer_username={this.Settings.UserName}&not[approved_by_usernames]={this.Settings.UserName}&not[author_username]={this.Settings.UserName}");
             if (!mergeRequestsResult.IsSuccessStatusCode)
             {
                 return null;
@@ -89,7 +92,7 @@ public class GitlabClient
                     continue;
                 }
 
-                if (approvedByArray.Any(x => x.Value<JObject>()?["user"]?["username"]?.ToString() == this._userName))
+                if (approvedByArray.Any(x => x.Value<JObject>()?["user"]?["username"]?.ToString() == this.Settings.UserName))
 
                 {
                     continue;
@@ -116,7 +119,19 @@ public class GitlabClient
 
         try
         {
-            var mergeRequestsResult = await this._client!.GetAsync($"merge_requests?state=opened&scope=all&author_username={this._userName}");
+            var requestUri = $"merge_requests?state=opened&scope=all&author_username={this.Settings.UserName}";
+
+            if (this.Settings.OnlyApprovedMrs)
+            {
+                requestUri += $"&approved_by_usernames[]=Any";
+            }
+
+            if(this.Settings.OnlyUnapprovedMrs)
+            {
+                requestUri += $"&approved_by_usernames[]=None";
+            }
+
+            var mergeRequestsResult = await this._client!.GetAsync(requestUri);
             if (!mergeRequestsResult.IsSuccessStatusCode)
             {
                 return null;
@@ -137,7 +152,8 @@ public class GitlabClient
 
     public async Task UpdateSettings(PluginSettings settings)
     {
-        if (_client == null || settings.Token != _token || settings.ServerUrl != _serverUrl || settings.Username != _userName)
+        var gitlabClientSettings = GitlabClientSettings.FromPluginSettings(settings);
+        if (_client == null || !Equals(this.Settings, gitlabClientSettings))
         {
             if (!Uri.IsWellFormedUriString(settings.ServerUrl, UriKind.Absolute))
             {
@@ -149,12 +165,10 @@ public class GitlabClient
                 return;
             }
 
-            _serverUrl = settings.ServerUrl;
-            _token = settings.Token;
-            _userName = settings.Username;
+            this.Settings = gitlabClientSettings;
 
-            var client = new HttpClient() { BaseAddress = new Uri(settings.ServerUrl + "/api/v4/") };
-            client.DefaultRequestHeaders.Add("PRIVATE-TOKEN", this._token);
+            var client = new HttpClient() { BaseAddress = new Uri(this.Settings.ServerUrl + "/api/v4/") };
+            client.DefaultRequestHeaders.Add("PRIVATE-TOKEN", this.Settings.Token);
 
             this._client = client;
             return;

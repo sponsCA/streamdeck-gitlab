@@ -1,5 +1,7 @@
-﻿using System.Diagnostics;
-using BarRaider.SdTools;
+﻿using BarRaider.SdTools;
+using Streamdeck_Gitlab.Common;
+
+namespace Streamdeck_Gitlab.TodosCounter;
 
 [PluginActionId("dev.spons.gitlab.todoscounter")]
 public class TodosCounter : BaseCounter

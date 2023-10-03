@@ -1,5 +1,8 @@
 ﻿using System.Diagnostics;
 using BarRaider.SdTools;
+using Streamdeck_Gitlab.Client;
+
+namespace Streamdeck_Gitlab.Common;
 
 public abstract class BaseCounter : KeypadBase
 {
@@ -31,7 +34,6 @@ public abstract class BaseCounter : KeypadBase
         Tools.AutoPopulateSettings(this.Settings, payload.Settings);
         await this.GitlabClient.UpdateSettings(this.Settings);
         await this.UpdateCountAsync();
-        _tickCount = 1;
     }
 
     public override void ReceivedGlobalSettings(ReceivedGlobalSettingsPayload payload)
@@ -47,7 +49,6 @@ public abstract class BaseCounter : KeypadBase
     {
         Process.Start(new ProcessStartInfo(this.GetUrl()) { UseShellExecute = true });
         await this.UpdateCountAsync();
-        _tickCount = 1;
     }
 
     public override async void OnTick()
