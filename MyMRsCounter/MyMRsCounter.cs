@@ -30,4 +30,25 @@ public class MyMRsCounter : BaseCounter
     {
         return this.GitlabClient.GetMyMRsCount();
     }
+
+    protected override string FormatTitle(string count)
+    {
+        if(!string.IsNullOrEmpty(this.Settings.TitleFormat))
+        {
+            return this.Settings.TitleFormat.Replace("{count}", count);
+        }
+
+        var title = string.Empty;
+        if (this.Settings.OnlyApprovedMrs)
+        {
+            title += "✅";
+        }
+
+        if (this.Settings.OnlyUnapprovedMrs)
+        {
+            title += "🕰️";
+        }
+
+        return title + count;
+    }
 }

@@ -93,7 +93,7 @@ public abstract class BaseCounter : KeypadBase
         await Connection.SetTitleAsync(FormatTitle(count.ToString()!));
     }
 
-    private string FormatTitle(string count)
+    protected virtual string FormatTitle(string count)
     {
         return !string.IsNullOrEmpty(this.Settings.TitleFormat) ? this.Settings.TitleFormat.Replace("{count}", count) : count;
     }
