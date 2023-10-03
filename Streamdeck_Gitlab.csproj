@@ -91,7 +91,6 @@
         <None Update="Images\clockifyIcon@2x.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-        <None Remove="Streamdeck_Gitlab_Tests\**" />
         <None Update="Images\iconMRsAssigned.png">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
@@ -234,11 +233,9 @@
         </None>
     </ItemGroup>
     <ItemGroup>
-      <Compile Remove="Streamdeck_Gitlab_Tests\**" />
       <Compile Remove="temp\**" />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Remove="Streamdeck_Gitlab_Tests\**" />
       <EmbeddedResource Remove="temp\**" />
     </ItemGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
