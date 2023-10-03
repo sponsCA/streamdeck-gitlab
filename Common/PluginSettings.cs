@@ -9,6 +9,9 @@ public class PluginSettings
     [JsonProperty(PropertyName = "serverUrl")]
     public string ServerUrl { get; set; } = "https://gitlab.com";
 
+    [JsonProperty(PropertyName = "titleFormat")]
+    public string TitleFormat { get; set; } = string.Empty;
+
     #region MyMRsCounter and OtherMRsCounter
 
     [JsonProperty(PropertyName = "userName")]

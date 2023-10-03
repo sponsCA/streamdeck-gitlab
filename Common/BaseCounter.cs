@@ -75,9 +75,9 @@ public abstract class BaseCounter : KeypadBase
 
     private async Task UpdateCountAsync()
     {
-        var todosCount = await this.GetCountAsync();
+        var count = await this.GetCountAsync();
 
-        switch (todosCount)
+        switch (count)
         {
             case null:
                 await Connection.ShowAlert();
@@ -90,7 +90,12 @@ public abstract class BaseCounter : KeypadBase
                 break;
         }
 
-        await Connection.SetTitleAsync(todosCount.ToString());
+        await Connection.SetTitleAsync(FormatTitle(count.ToString()!));
+    }
+
+    private string FormatTitle(string count)
+    {
+        return !string.IsNullOrEmpty(this.Settings.TitleFormat) ? this.Settings.TitleFormat.Replace("{count}", count) : count;
     }
 
     protected abstract string GetUrl();
