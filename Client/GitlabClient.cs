@@ -121,7 +121,7 @@ public class GitlabClient
         {
             var requestUri = $"merge_requests?state=opened&scope=all&author_username={this.Settings.UserName}";
 
-            switch (this.Settings.MyMrsStatusModeMode)
+            switch (this.Settings.MyMrsStatusMode)
             {
                 case MyMrsStatusModeEnum.Both:
                     break;

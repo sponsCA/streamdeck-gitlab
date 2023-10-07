@@ -16,7 +16,7 @@ public class MyMRsCounter : CounterBase
     {
         var requestUri = $"{this.Settings.ServerUrl}/dashboard/merge_requests?scope=all&state=opened&author_username={this.Settings.Username}";
 
-        switch (this.Settings.MyMrsStatusModeMode)
+        switch (this.Settings.MyMrsStatusMode)
         {
             case MyMrsStatusModeEnum.Both:
                 break;
@@ -47,7 +47,7 @@ public class MyMRsCounter : CounterBase
 
         var title = string.Empty;
 
-        switch (this.Settings.MyMrsStatusModeMode)
+        switch (this.Settings.MyMrsStatusMode)
         {
             case MyMrsStatusModeEnum.Both:
                 break;

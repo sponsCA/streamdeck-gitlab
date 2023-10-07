@@ -23,7 +23,7 @@ public class PluginSettings
     #region MyMRsCounter
 
     [JsonProperty(PropertyName = "myMrsStatusMode")]
-    public MyMrsStatusModeEnum MyMrsStatusModeMode { get; set; } = MyMrsStatusModeEnum.Both;
+    public MyMrsStatusModeEnum MyMrsStatusMode { get; set; } = MyMrsStatusModeEnum.Both;
 
     #endregion
 }
