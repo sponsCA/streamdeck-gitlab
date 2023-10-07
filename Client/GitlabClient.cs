@@ -121,14 +121,14 @@ public class GitlabClient
         {
             var requestUri = $"merge_requests?state=opened&scope=all&author_username={this.Settings.UserName}";
 
-            switch (this.Settings.MyMrsStatus)
+            switch (this.Settings.MyMrsStatusModeMode)
             {
-                case MyMrsStatusEnum.All:
+                case MyMrsStatusModeEnum.Both:
                     break;
-                case MyMrsStatusEnum.OnlyApproved:
+                case MyMrsStatusModeEnum.ApprovedOnly:
                     requestUri += $"&approved_by_usernames[]=Any";
                     break;
-                case MyMrsStatusEnum.OnlyUnapproved:
+                case MyMrsStatusModeEnum.UnapprovedOnly:
                     requestUri += $"&approved_by_usernames[]=None";
                     break;
                 default:

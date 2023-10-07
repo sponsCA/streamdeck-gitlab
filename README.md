@@ -7,11 +7,14 @@ This plugin integrates Gitlab on your [Elgato Stream Deck](https://www.elgato.co
 - **Refresh rate** : 30 seconds
 - **Actions** 
   - **Pending Todos count** : Displays the current count of your pending todos.
-  - **Merge Request Review count** : Displays the current count of your active Merge Requests. This means an active MR you are the author.
+  - **Merge Request Review count** : Displays the current count of your active Merge Requests. This means an active MR you are the author. You can choose between 3 modes:
+    - **Both approved and unapproved** : All your opened MRs
+    - **Approved only** : ✅Only your opened MRs with at least one approval
+    - **Unapproved only** : 🕰️ Only your opened MRs with no approval
   - **Unapproved Review Requests count** : Displays the current count of your active unapproved merge request reviews requested. This means an active MR requested from others (you're a reviewer but not the author).
-  - **Actions states** :
-    - **Red** : Count > 0
-    - **Black** : Count = 0
+- **Actions states** :
+  - **Red** : Count > 0
+  - **Black** : Count = 0
 
 ## Download
 You can download a copy from the [GitHub release pages](https://github.com/sponsCA/streamdeck-gitlab/releases/latest).
@@ -21,10 +24,14 @@ You'll have to generate a [Personal Access Token](https://docs.gitlab.com/ee/use
 - `read_api`
 
 ## Plugin Setup
-- **Title:** Leave it empty, otherwise you won't be able to see the counter
-- **Access token:** *(required)* Provide your 20 characters long *Personal Access Token*, which is required for the plugin to work
-- **Server Url:** *(required)* Change from the *default* URL (https://gitlab.com/) to the API URL of your own/company instance
-- **Username**: *(required for some actions)* Provide your username, which is required for the plugin to work
+- Basic:
+  - **Title:** Leave it empty, otherwise you won't be able to see the counter
+  - **Access token:** *(required)* Provide your 20 characters long *Personal Access Token*, which is required for the plugin to work
+  - **Server Url:** *(required)* Change from the *default* URL (https://gitlab.com/) to the API URL of your own/company instance
+  - **Username**: *(required for MyMrs and OtherMrs)* Provide your username
+- Advanced:
+  - **Title Format** : In case you want to customize the title format. Variables available:
+     - _{count}_ : The count number of the action selected
 
 ## FAQ / Troubleshooting
 - Why am I getting a yellow triangle when pressing the button?
@@ -34,7 +41,6 @@ You'll have to generate a [Personal Access Token](https://docs.gitlab.com/ee/use
 ## TO-DOs
 Feel free to contribute to this repository.
 - Add compatibility with macOS
-- Use GlobalSettings instead of Settings
 - Add any other useful feature
 
 ## Credits

@@ -16,14 +16,14 @@ public class MyMRsCounter : CounterBase
     {
         var requestUri = $"{this.Settings.ServerUrl}/dashboard/merge_requests?scope=all&state=opened&author_username={this.Settings.Username}";
 
-        switch (this.Settings.MyMrsStatus)
+        switch (this.Settings.MyMrsStatusModeMode)
         {
-            case MyMrsStatusEnum.All:
+            case MyMrsStatusModeEnum.Both:
                 break;
-            case MyMrsStatusEnum.OnlyApproved:
+            case MyMrsStatusModeEnum.ApprovedOnly:
                 requestUri += $"&approved_by_usernames[]=Any";
                 break;
-            case MyMrsStatusEnum.OnlyUnapproved:
+            case MyMrsStatusModeEnum.UnapprovedOnly:
                 requestUri += $"&approved_by_usernames[]=None";
                 break;
             default:
@@ -47,14 +47,14 @@ public class MyMRsCounter : CounterBase
 
         var title = string.Empty;
 
-        switch (this.Settings.MyMrsStatus)
+        switch (this.Settings.MyMrsStatusModeMode)
         {
-            case MyMrsStatusEnum.All:
+            case MyMrsStatusModeEnum.Both:
                 break;
-            case MyMrsStatusEnum.OnlyApproved:
+            case MyMrsStatusModeEnum.ApprovedOnly:
                 title += "✅";
                 break;
-            case MyMrsStatusEnum.OnlyUnapproved:
+            case MyMrsStatusModeEnum.UnapprovedOnly:
                 title += "🕰️";
                 break;
             default:

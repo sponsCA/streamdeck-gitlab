@@ -23,16 +23,16 @@
     </div>
     <div class="sdpi-item">
         <div class="sdpi-item-label">MRs status mode</div>
-        <select class="sdpi-item-value sdProperty" id="myMrsStatus"
+        <select class="sdpi-item-value sdProperty" id="myMrsStatusMode"
                 oninput="setSettings()" required>
-            <option value="All" selected>Both Approved and Unapproved</option>
-            <option value="OnlyApproved">Only Approved</option>
-            <option value="OnlyUnapproved">Only Unapproved</option>
+            <option value="Both" selected>Both Approved and Unapproved</option>
+            <option value="ApprovedOnly">Approved only</option>
+            <option value="UnapprovedOnly">Unapproved only</option>
         </select>
     </div>
     <div class="sdpi-item">
         <div class="sdpi-item-label">Server Url</div>
-        <input class="sdpi-item-value sdProperty" id="serverUrl" value="" placeholder="Enter the ULR of the Server"
+        <input class="sdpi-item-value sdProperty" id="serverUrl" value="https://gitlab.com" placeholder="Enter the ULR of the Server"
                oninput="setSettings()" required>
     </div>
     <div class="sdpi-item">

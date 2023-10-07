@@ -22,8 +22,8 @@ public class PluginSettings
 
     #region MyMRsCounter
 
-    [JsonProperty(PropertyName = "myMrsStatus")]
-    public MyMrsStatusEnum MyMrsStatus { get; set; } = MyMrsStatusEnum.All;
+    [JsonProperty(PropertyName = "myMrsStatusMode")]
+    public MyMrsStatusModeEnum MyMrsStatusModeMode { get; set; } = MyMrsStatusModeEnum.Both;
 
     #endregion
 }
