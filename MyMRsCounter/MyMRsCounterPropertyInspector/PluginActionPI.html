@@ -22,19 +22,12 @@
                oninput="setSettings()" required>
     </div>
     <div class="sdpi-item">
-        <div class="sdpi-item-label">Only approved MRs</div>
-        <select class="sdpi-item-value sdProperty" id="onlyApprovedMrs"
+        <div class="sdpi-item-label">MRs status mode</div>
+        <select class="sdpi-item-value sdProperty" id="myMrsStatus"
                 oninput="setSettings()" required>
-            <option value="true">Yes</option>
-            <option value="false" selected>No</option>
-        </select>
-    </div>
-    <div class="sdpi-item">
-        <div class="sdpi-item-label">Only unapproved MRs</div>
-        <select class="sdpi-item-value sdProperty" id="onlyUnapprovedMrs"
-                oninput="setSettings()" required>
-            <option value="true">Yes</option>
-            <option value="false" selected>No</option>
+            <option value="All" selected>Both Approved and Unapproved</option>
+            <option value="OnlyApproved">Only Approved</option>
+            <option value="OnlyUnapproved">Only Unapproved</option>
         </select>
     </div>
     <div class="sdpi-item">

@@ -4,7 +4,7 @@ using Streamdeck_Gitlab.Common;
 namespace Streamdeck_Gitlab.TodosCounter;
 
 [PluginActionId("dev.spons.gitlab.todoscounter")]
-public class TodosCounter : BaseCounter
+public class TodosCounter : CounterBase
 {
     public TodosCounter(ISDConnection connection, InitialPayload payload)
         : base(connection, payload)

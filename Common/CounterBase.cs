@@ -4,7 +4,7 @@ using Streamdeck_Gitlab.Client;
 
 namespace Streamdeck_Gitlab.Common;
 
-public abstract class BaseCounter : KeypadBase
+public abstract class CounterBase : KeypadBase
 {
     private const uint InactiveState = 0;
     private const uint ActiveState = 1;
@@ -14,7 +14,7 @@ public abstract class BaseCounter : KeypadBase
     // SDK does not allow us to set the tick interval, this is a workaround to only poke the API every X ticks (defined in GlobalConstants)
     private int _tickCount = GlobalConstants.RefreshRate;
 
-    protected BaseCounter(ISDConnection connection, InitialPayload payload)
+    protected CounterBase(ISDConnection connection, InitialPayload payload)
         : base(connection, payload)
     {
         Settings = new PluginSettings();
@@ -22,7 +22,7 @@ public abstract class BaseCounter : KeypadBase
         Tools.AutoPopulateSettings(Settings, payload.Settings);
 
         this.UpdateClientAsync().Wait();
-        this.UpdateCountAsync().Wait();
+        this.UpdateCounterAsync().Wait();
     }
 
     public override void Dispose()
@@ -33,7 +33,7 @@ public abstract class BaseCounter : KeypadBase
     {
         Tools.AutoPopulateSettings(this.Settings, payload.Settings);
         await this.GitlabClient.UpdateSettings(this.Settings);
-        await this.UpdateCountAsync();
+        await this.UpdateCounterAsync();
     }
 
     public override void ReceivedGlobalSettings(ReceivedGlobalSettingsPayload payload)
@@ -48,7 +48,7 @@ public abstract class BaseCounter : KeypadBase
     public override async void KeyReleased(KeyPayload payload)
     {
         Process.Start(new ProcessStartInfo(this.GetUrl()) { UseShellExecute = true });
-        await this.UpdateCountAsync();
+        await this.UpdateCounterAsync();
     }
 
     public override async void OnTick()
@@ -59,7 +59,7 @@ public abstract class BaseCounter : KeypadBase
             return;
         }
 
-        await this.UpdateCountAsync();
+        await this.UpdateCounterAsync();
 
         _tickCount = 1;
     }
@@ -73,7 +73,7 @@ public abstract class BaseCounter : KeypadBase
         }
     }
 
-    private async Task UpdateCountAsync()
+    private async Task UpdateCounterAsync()
     {
         var count = await this.GetCountAsync();
 

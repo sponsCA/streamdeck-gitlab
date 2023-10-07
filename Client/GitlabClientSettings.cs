@@ -7,36 +7,32 @@ public class GitlabClientSettings
     public string Token { get; }
     public string ServerUrl { get; }
     public string UserName { get; }
-    public bool OnlyApprovedMrs { get; }
-
-    public bool OnlyUnapprovedMrs { get; }
+    public MyMrsStatusEnum MyMrsStatus { get; }
 
     public GitlabClientSettings()
     {
         this.Token = string.Empty;
         this.ServerUrl = string.Empty;
         this.UserName = string.Empty;
-        this.OnlyApprovedMrs = false;
-        this.OnlyUnapprovedMrs = false;
+        this.MyMrsStatus = MyMrsStatusEnum.All;
     }
 
-    public GitlabClientSettings(string token, string serverUrl, string userName, bool onlyApprovedMrs, bool onlyUnapprovedMrs)
+    public GitlabClientSettings(string token, string serverUrl, string userName, MyMrsStatusEnum myMrsStatus)
     {
         this.Token = token;
         this.ServerUrl = serverUrl;
         this.UserName = userName;
-        this.OnlyApprovedMrs = onlyApprovedMrs;
-        this.OnlyUnapprovedMrs = onlyUnapprovedMrs;
+        this.MyMrsStatus = myMrsStatus;
     }
 
     public static GitlabClientSettings FromPluginSettings(PluginSettings pluginSettings)
     {
-        return new GitlabClientSettings(pluginSettings.Token, pluginSettings.ServerUrl, pluginSettings.Username, pluginSettings.OnlyApprovedMrs, pluginSettings.OnlyUnapprovedMrs);
+        return new GitlabClientSettings(pluginSettings.Token, pluginSettings.ServerUrl, pluginSettings.Username, (MyMrsStatusEnum)pluginSettings.MyMrsStatus);
     }
 
     private bool Equals(GitlabClientSettings other)
     {
-        return this.Token == other.Token && this.ServerUrl == other.ServerUrl && this.UserName == other.UserName && this.OnlyApprovedMrs == other.OnlyApprovedMrs && this.OnlyUnapprovedMrs == other.OnlyUnapprovedMrs;
+        return this.Token == other.Token && this.ServerUrl == other.ServerUrl && this.UserName == other.UserName && this.MyMrsStatus == other.MyMrsStatus;
     }
 
     public override bool Equals(object? obj)
@@ -49,6 +45,6 @@ public class GitlabClientSettings
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(this.Token, this.ServerUrl, this.UserName, this.OnlyApprovedMrs, this.OnlyUnapprovedMrs);
+        return HashCode.Combine(this.Token, this.ServerUrl, this.UserName, this.MyMrsStatus);
     }
 }

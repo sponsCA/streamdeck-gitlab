@@ -4,7 +4,7 @@ using Streamdeck_Gitlab.Common;
 namespace Streamdeck_Gitlab.OtherMRsCounter;
 
 [PluginActionId("dev.spons.gitlab.othermrscounter")]
-public class OtherMRsCounter : BaseCounter
+public class OtherMRsCounter : CounterBase
 {
     public OtherMRsCounter(ISDConnection connection, InitialPayload payload)
         : base(connection, payload)

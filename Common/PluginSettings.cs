@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using Streamdeck_Gitlab.MyMRsCounter.Settings;
 
 namespace Streamdeck_Gitlab.Common;
 
@@ -21,11 +22,8 @@ public class PluginSettings
 
     #region MyMRsCounter
 
-    [JsonProperty(PropertyName = "onlyApprovedMrs")]
-    public bool OnlyApprovedMrs { get; set; } = false;
-
-    [JsonProperty(PropertyName = "onlyUnapprovedMrs")]
-    public bool OnlyUnapprovedMrs { get; set; } = false;
+    [JsonProperty(PropertyName = "myMrsStatus")]
+    public MyMrsStatusEnum MyMrsStatus { get; set; } = MyMrsStatusEnum.All;
 
     #endregion
 }

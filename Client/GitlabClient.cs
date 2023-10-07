@@ -121,14 +121,18 @@ public class GitlabClient
         {
             var requestUri = $"merge_requests?state=opened&scope=all&author_username={this.Settings.UserName}";
 
-            if (this.Settings.OnlyApprovedMrs)
+            switch (this.Settings.MyMrsStatus)
             {
-                requestUri += $"&approved_by_usernames[]=Any";
-            }
-
-            if(this.Settings.OnlyUnapprovedMrs)
-            {
-                requestUri += $"&approved_by_usernames[]=None";
+                case MyMrsStatusEnum.All:
+                    break;
+                case MyMrsStatusEnum.OnlyApproved:
+                    requestUri += $"&approved_by_usernames[]=Any";
+                    break;
+                case MyMrsStatusEnum.OnlyUnapproved:
+                    requestUri += $"&approved_by_usernames[]=None";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             var mergeRequestsResult = await this._client!.GetAsync(requestUri);
