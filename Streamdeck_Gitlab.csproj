@@ -196,39 +196,12 @@
         <None Update="TodosCounter\TodosCounterPropertyInspector\PluginActionPI.html">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-        <None Update="TodosCounter\TodosCounterPropertyInspector\PluginActionPI.js">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Update="TodosCounter\TodosCounterPropertyInspector\sdpi.css">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Update="TodosCounter\TodosCounterPropertyInspector\sdtools.common.js">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
         <None Update="OtherMRsCounter\OtherMRsCounterPropertyInspector\PluginActionPI.html">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Update="OtherMRsCounter\OtherMRsCounterPropertyInspector\PluginActionPI.js">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Update="OtherMRsCounter\OtherMRsCounterPropertyInspector\sdpi.css">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Update="OtherMRsCounter\OtherMRsCounterPropertyInspector\sdtools.common.js">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
         <None Remove="temp\**" />
         <None Remove="DistributionTool.exe" />
         <None Update="MyMRsCounter\MyMRsCounterPropertyInspector\PluginActionPI.html">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Update="MyMRsCounter\MyMRsCounterPropertyInspector\PluginActionPI.js">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Update="MyMRsCounter\MyMRsCounterPropertyInspector\sdpi.css">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Update="MyMRsCounter\MyMRsCounterPropertyInspector\sdtools.common.js">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
